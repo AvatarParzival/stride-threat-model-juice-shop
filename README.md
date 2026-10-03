@@ -1,105 +1,122 @@
-# stride-threat-model-juice-shop
+# Stride Threat Model Juice Shop
 
-> **ZeroDay Reapers | GRC Internship — Week 04**
+[![GRC](https://img.shields.io/badge/Domain-GRC-243B53)](https://en.wikipedia.org/wiki/Governance,_risk_management,_and_compliance)
+[![STRIDE](https://img.shields.io/badge/Framework-STRIDE-CC0000)](https://en.wikipedia.org/wiki/STRIDE_(security))
+[![OWASP](https://img.shields.io/badge/Target-OWASP%20Juice%20Shop-F7941E)](https://owasp.org/www-project-juice-shop/)
+[![MITRE ATT&CK](https://img.shields.io/badge/MITRE%20ATT%26CK-Enterprise-005A9C)](https://attack.mitre.org/)
+[![Docker](https://img.shields.io/badge/Platform-Docker-2496ED)](https://www.docker.com/)
 
-A structured threat modeling and live validation exercise conducted against **OWASP Juice Shop** (v17.x), deployed as a Docker container on an Ubuntu 22.04 VM. The engagement applies STRIDE classification, DREAD risk scoring, OWASP Top 10 alignment, and MITRE ATT&CK mapping to produce a full remediation backlog.
+A structured threat modeling and live validation exercise conducted against **OWASP Juice Shop v17.x**, deployed as a Docker container on an Ubuntu 22.04 VM. The engagement applies **STRIDE** threat classification, **DREAD** risk scoring, **OWASP Top 10** alignment, and **MITRE ATT&CK** mapping to produce a full prioritised remediation backlog.
 
----
+> **Core principle:** a threat was only counted as confirmed when live exploitation produced reproducible, photographic evidence.
 
-## Overview
+## Final Report
 
-| Field | Detail |
+📄 **[Read the complete STRIDE Threat Modeling Report](ZRD_Week4_GRC_Report.pdf)**
+
+- **Task ID:** ZDR-W4-GRC-24GB
+- **Assessment type:** Threats to Backlog — STRIDE Threat Modeling, Live Validation & Structured Remediation Planning
+- **Report date:** 14 September 2026
+- **Prepared by:** Abdullah Zubair
+
+## Project Objectives
+
+1. Deploy OWASP Juice Shop v17.x in a controlled Docker environment.
+2. Build a Data Flow Diagram (DFD) using OWASP Threat Dragon.
+3. Apply STRIDE to produce a complete threat register across all six categories.
+4. Score every threat using DREAD for quantitative prioritisation.
+5. Validate six selected threats live and capture photographic evidence.
+6. Map all threats to OWASP Top 10 categories and MITRE ATT&CK tactics.
+7. Produce a sprint-based remediation backlog with ownership and effort estimates.
+
+## Scope and Environment
+
+| Component | Detail |
 |---|---|
-| Task ID | ZDR-W4-GRC-24GB |
-| Assessment Type | Threats to Backlog — STRIDE Threat Modeling, Live Validation & Structured Remediation Planning |
-| Platform | Docker Container on BUN VM (Ubuntu 22.04) |
-| Target Application | OWASP Juice Shop v17.x |
+| Target application | OWASP Juice Shop v17.x |
+| Deployment | Docker container |
+| Host VM | BUN — Ubuntu 22.04 |
 | Endpoint | `http://127.0.0.1:3000` — IP: `192.168.136.131` |
-| Prepared By | Abdullah Zubair |
-| Report Date | 14 September 2026 |
+| Threat modeling tool | OWASP Threat Dragon |
 
----
+### Standards and Guidance
 
-## Key Findings
+- **STRIDE** — Threat classification
+- **DREAD** — Risk scoring
+- **OWASP Top 10**
+- **MITRE ATT&CK for Enterprise**
+- **CWE** — Common Weakness Enumeration
+
+## Key Results
 
 | Metric | Value |
-|---|---|
-| Total STRIDE Threats Identified | 12 |
+|---|---:|
+| Total STRIDE threats identified | 12 |
 | Critical (DREAD ≥ 8.0) | 4 |
 | High (DREAD 6.0–7.9) | 7 |
 | Medium (DREAD 4.0–5.9) | 1 |
-| Threats Validated Live | 6 of 6 (100%) |
-| Remediation Backlog Items | 12 (REM-01 to REM-12) |
-| Total Estimated Remediation Effort | 35 developer-days |
-| OWASP Top 10 Categories Covered | 6 |
-| MITRE ATT&CK Tactics Mapped | 5 |
-| CWE Identifiers Assigned | 12 |
+| Threats validated live | 6 of 6 (100%) |
+| Remediation backlog items | 12 (REM-01 to REM-12) |
+| Total estimated remediation effort | 35 developer-days |
+| OWASP Top 10 categories covered | 6 |
+| MITRE ATT&CK tactics mapped | 5 |
+| CWE identifiers assigned | 12 |
 
-Most critical finding: **THR-01 — SQL Injection Authentication Bypass** (DREAD 9.0).
+## Validated Threats
 
----
+| ID | Title | DREAD | OWASP Category |
+|---|---|---|---|
+| THR-01 | SQL Injection — Authentication Bypass | 9.0 | A03: Injection |
+| THR-02 | Detailed Error Disclosure | — | A05: Security Misconfiguration |
+| THR-03 | Missing Content Security Policy (CSP) | — | A05: Security Misconfiguration |
+| THR-04 | IDOR — Basket Access | — | A01: Broken Access Control |
+| THR-06 | DOM-based XSS | — | A03: Injection |
+| THR-08 | No Rate Limiting | — | A07: Auth Failures |
 
-## Methodology
+All six threats were confirmed through live exploitation. Evidence screenshots EV-14 through EV-19 are included in the repository.
 
-1. **Environment Setup** — Docker-based OWASP Juice Shop deployment on BUN VM
-2. **Data Flow Diagram (DFD)** — Modeled with OWASP Threat Dragon
-3. **STRIDE Threat Register** — 12 threats classified across all 6 STRIDE categories
-4. **DREAD Risk Scoring** — Quantitative scoring for prioritization
-5. **Live Threat Validation** — 6 of 6 threats confirmed with photographic evidence (EV-14–EV-19)
-6. **Remediation Backlog** — 12 items organized into 3 sprints
-7. **Risk Treatment Decisions** — Accept / Mitigate / Transfer per item
-
----
-
-## Sprint Plan Summary
+## Sprint Plan
 
 | Sprint | Focus | Items | Timeline |
 |---|---|---|---|
-| Sprint 1 | Critical Risks | 4 | Weeks 1–4 |
-| Sprint 2 | High Risks | 4 | Weeks 5–8 |
-| Sprint 3 | Defence in Depth | 4 | Weeks 9–12 |
+| Sprint 1 | Critical risks | 4 | Weeks 1–4 |
+| Sprint 2 | High risks | 4 | Weeks 5–8 |
+| Sprint 3 | Defence in depth | 4 | Weeks 9–12 |
 
----
+## Repository Structure
 
-## Validated Vulnerabilities
-
-| ID | Title | DREAD |
-|---|---|---|
-| THR-01 | SQL Injection — Authentication Bypass | 9.0 |
-| THR-02 | Detailed Error Disclosure | — |
-| THR-03 | Missing Content Security Policy (CSP) | — |
-| THR-04 | IDOR — Basket Access | — |
-| THR-06 | DOM-based XSS | — |
-| THR-08 | No Rate Limiting | — |
-
----
-
-## Repository Contents
-
-```
-├── ZRD_Week4_GRC_Report.pdf        # Full GRC report
-├── Diagram.png                     # Architecture / DFD diagram
-└── Screenshots                     # Evidence screenshots
-
+```text
+.
+├── README.md
+├── ZRD_Week4_GRC_Report.pdf
+├── Diagram.png
+└── Screenshots/
 ```
 
----
+## Limitations
 
-## Tools & Frameworks Used
+- The exercise was conducted in an isolated lab environment against an intentionally vulnerable application.
+- DREAD scores reflect analyst judgment at the time of assessment and are not independently verified.
+- Six of twelve threats were selected for live validation; the remaining six were assessed analytically only.
+- Remediation effort estimates are indicative and were not derived from a formal sizing exercise.
+- Results should not be generalised to production environments or other applications.
 
-- **OWASP Juice Shop** — Target application
-- **OWASP Threat Dragon** — Threat model diagramming
-- **Docker** — Container deployment
-- **STRIDE** — Threat classification
-- **DREAD** — Risk scoring
-- **MITRE ATT&CK for Enterprise** — Tactic mapping
-- **OWASP Top 10** — Vulnerability alignment
+## Lessons Learned
 
----
+- A threat model without live validation produces assumptions, not findings.
+- DREAD scoring is most useful when applied consistently across all threats before prioritisation.
+- Docker-based targets reduce environment variability and make evidence collection repeatable.
+- SQL injection remains trivially exploitable when parameterised queries are absent.
+- Documenting a threat is not the same as understanding its exploitability — execution reveals the difference.
 
 ## Author
 
-**Abdullah Zubair**
+**Abdullah Zubair**  
+Cybersecurity | GRC | Security Automation
 - GitHub: [@AvatarParzival](https://github.com/AvatarParzival)
 - LinkedIn: [Abdullah Zubair](https://www.linkedin.com/in/abdullahzubairr)
 - Email: [abdullah69zubair@gmail.com](mailto:abdullah69zubair@gmail.com)
+
+## Responsible Use
+
+This repository is intended for educational, defensive-security and professional portfolio purposes. The target application is intentionally vulnerable and was deployed in an isolated lab. Do not use the techniques or findings demonstrated here against systems without explicit authorisation.
