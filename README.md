@@ -78,10 +78,9 @@ Most critical finding: **THR-01 — SQL Injection Authentication Bypass** (DREAD
 
 ```
 ├── ZRD_Week4_GRC_Report.pdf        # Full GRC report
-├── ZRD_Week4_GRC_Report.docx       # Editable report
 ├── Diagram.png                     # Architecture / DFD diagram
-├── EV-01 to EV-19 (*.png)         # Evidence screenshots
-└── week-0-..._Governance_Risk-Compliance_24GB.pdf  # Programme brief
+└── Screenshots                     # Evidence screenshots
+
 ```
 
 ---
